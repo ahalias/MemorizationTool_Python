@@ -31,24 +31,20 @@ class MemTool:
         menu_items = {'1.': 'Add flashcards', '2.': 'Practice flashcards', '3.': 'Exit'}
         self.process_menu(menu_items)
         inp = input()
-        if inp == "1":
-            self.add_flashcards_menu()
-        elif inp == "2":
-            self.practice_flashcards()
-        elif inp == "3":
-            self.exit()
-        else:
+        options = {"1": self.add_flashcards_menu, "2":  self.practice_flashcards, "3": self.exit}
+        try:
+            options[inp]()
+        except Exception as e:
             print(f"{inp} is not an option")
 
     def add_flashcards_menu(self):
         menu_items = {'1.': 'Add a new flashcard', '2.': 'Exit'}
         self.process_menu(menu_items)
         inp = input()
-        if inp == "1":
-            self.add_flashcard()
-        elif inp == "2":
-            self.exit()
-        else:
+        options = {"1": self.add_flashcard, "2": self.exit}
+        try:
+            options[inp]()
+        except Exception as e:
             print(f"{inp} is not an option")
             self.add_flashcards_menu()
 
