@@ -16,6 +16,7 @@ class Flashcard(Base):
     answer = Column(String, nullable=False)
     box = Column(Integer, nullable=False, default=1)
 
+
 Base.metadata.create_all(engine)
 
 
@@ -94,7 +95,6 @@ press "e" to edit the flashcard:''')
             session.delete(card)
             session.commit()
 
-
     def add_flashcard(self):
         question = ""
         answer = ""
@@ -112,10 +112,6 @@ press "e" to edit the flashcard:''')
         exit()
 
 
-
 memTool = MemTool()
 while True:
     memTool.main_menu()
-
-
-
